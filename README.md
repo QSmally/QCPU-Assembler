@@ -9,7 +9,7 @@ There are already some `ExamplePrograms/` you could try out - Copy the `ProgramN
 
 ### Structure
 Each program in `Program/`, when assembled, has three files;
-* ProgramName.s - Your inputted program, saw Assembly
+* ProgramName.s - Your inputted program, raw Assembly
 * ProgramName.schem - The schematic this assembler created for you to paste into your world
 * ProgramName.txt - The converted binary which is used in the schematic
 
