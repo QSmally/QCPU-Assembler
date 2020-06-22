@@ -8,7 +8,7 @@ Clone the repository, run `npm install` to install libraries, and input your `Pr
 There are already some `ExamplePrograms/` you could try out - Copy the `ProgramName.schem` file and paste it into your schematics folder or upload it to a server.
 
 ### Structure
-Each program in `Program/`, when assembled, have three files;
+Each program in `Program/`, when assembled, has three files;
 * ProgramName.s - Your inputted program, saw Assembly
 * ProgramName.schem - The schematic this assembler created for you to paste into your world
 * ProgramName.txt - The converted binary which is used in the schematic
