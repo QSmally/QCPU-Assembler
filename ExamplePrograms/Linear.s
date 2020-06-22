@@ -1,0 +1,13 @@
+LIM $1
+3
+LIM $2
+2
+LIM $3
+0
+CND 0
+AST $1
+ADD $2
+RST $1
+NOP
+INC $3
+JMP 7

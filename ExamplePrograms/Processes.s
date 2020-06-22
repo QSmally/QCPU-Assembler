@@ -1,0 +1,6 @@
+PLD 0
+RST $6
+NOP
+INC $7
+POI $6
+SLP 0

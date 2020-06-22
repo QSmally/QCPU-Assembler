@@ -1,0 +1,29 @@
+LIM $1
+8
+LIM $2
+8
+LIM $3
+1
+LIM $4
+1
+LIM $5
+8
+LIM $0
+14
+MST 0
+LIM $0
+15
+MST 1
+LIM $0
+1
+MST 2
+AST $5
+NOP
+PST 0
+AST $1
+NOP
+PST 0
+AST $2
+NOP
+PST 0
+SLP 1

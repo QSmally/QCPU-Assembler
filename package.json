@@ -1,0 +1,8 @@
+{
+    "main": "./Main.js",
+    "dependencies": {
+        "nbt-ts": "^1.3.3",
+        "prismarine-nbt": "^1.3.0",
+        "zlib": "^1.0.5"
+    }
+}

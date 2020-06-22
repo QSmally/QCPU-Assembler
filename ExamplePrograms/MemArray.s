@@ -1,0 +1,8 @@
+LIM $7
+0
+CND 0
+PLD 0
+POI $7
+MST 0
+INC $7
+JMP 3
