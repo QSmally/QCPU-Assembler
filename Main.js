@@ -17,10 +17,8 @@ FS.readdirSync("./Program").forEach(File => {
     // Create an indexed instruction list.
     const Program = FS.readFileSync(`./Program/${File}`, {encoding: "utf8"})
     .split("\n")
-    .map(Instr => Instr.trim())
-    .filter(Instr => Instr[0] != ';') // Simple comments.
-    .map(Instr => Instr.split(" ")
-    .filter(Char => Char)
+    .map(Instr => Instr.replace(/(;.*\n)/g, "").trim().split(" "))
+    .filter(Char => !!Char)
     .map(Line => Line.replace("$", "")))
     .filter(Line => Line.length);
 
