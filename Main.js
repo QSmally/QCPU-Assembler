@@ -7,7 +7,14 @@ const FS    = require("fs");
 const Ops   = require("./Utils/Opcodes.json");
 const Schem = require("./Schem");
 
-const ToSignedBin = (Dec, Length) => (Dec >>> 0).toString(2).split("").reverse().slice(0, Length).reverse().join("").padStart(Length, "0");
+const ToSignedBin = (Dec, Length) => (Dec >>> 0)
+    .toString(2)
+    .split("")
+    .reverse()
+    .slice(0, Length)
+    .reverse()
+    .join("")
+    .padStart(Length, "0");
 
 FS.readdirSync("./Program").forEach(File => {
 
