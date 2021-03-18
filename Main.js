@@ -19,7 +19,7 @@ FS.readdirSync("./Program").forEach(File => {
     .split("\n")
     .map(Instr => Instr.replace(/(;.*\n)/g, "").trim().split(" "))
     .filter(Char => !!Char)
-    .map(Line => Line.replace("$", "")))
+    .map(Line => Line.replace("$", ""))
     .filter(Line => Line.length);
 
     console.log(Program);
