@@ -7,7 +7,7 @@ const FS    = require("fs");
 const Ops   = require("./Utils/Opcodes.json");
 const Schem = require("./Schem");
 
-const ToBin = (Dec, Length) => Dec.toString(2).padStart(Length, "0");
+const ToSignedBin = (Dec, Length) => (Dec >>> 0).toString(2).split("").reverse().slice(0, Length).reverse().join("").padStart(Length, "0");
 
 FS.readdirSync("./Program").forEach(File => {
 
@@ -28,11 +28,8 @@ FS.readdirSync("./Program").forEach(File => {
     // Iterate through the program
     Program.forEach(Line => {
         let Opcode = Ops[Line[0]];
-        if (!Opcode) return Output.push(ToBin(parseInt(Line[0]), 8));
-
-        Output.push(Opcode +
-            ToBin(parseInt(Line[1] || 0), ["DIM", "JMP", "MST", "MLD"].includes(Line[0]) ? 5 : 3)
-        );
+        if (!Opcode) return Output.push(ToSignedBin(parseInt(Line[0]), 8));
+        Output.push(Opcode + ToSignedBin(parseInt(Line[1] || 0), ["DIM", "JMP", "MST", "MLD"].includes(Line[0]) ? 5 : 3));
     });
 
     return Schem(File, Output);
