@@ -6,19 +6,20 @@
 const FS   = require("fs");
 const NBT  = require("nbt-ts");
 const zlib = require("zlib");
-const {parse: Parse} = require("prismarine-nbt");
+
+const {parse: Parse}    = require("prismarine-nbt");
 const {execSync: Shell} = require("child_process");
 
 const {Short, Int} = require("nbt-ts");
 
 
 const Prepare = (File, Contents) => {
-    // Manage output files.
+    // Manage output files
     let FileName = `./Program/${File.split(".")[0]}`;
     Shell(`cp ./Utils/BaseBoard.schem ${FileName}.schem`);
     Shell(`touch ${FileName}.txt`);
 
-    FS.writeFileSync(`${FileName}.txt`, Contents.join("\n"), {encoding: "utf8"});
+    FS.writeFileSync(`${FileName}.txt`, Contents.join("\n"), "utf8");
     return FileName;
 }
 
@@ -29,7 +30,7 @@ module.exports = (File, Input) => {
 
     const FileName = Prepare(File, Input);
 
-    // Do the interesting schematic stuff.
+    // Do the interesting schematic stuff
     Parse(FS.readFileSync("./Utils/BaseBoard.schem"), (Err, Schem) => {
 
         if (Err) throw Err;
@@ -52,7 +53,7 @@ module.exports = (File, Input) => {
 
         console.log(BlockData);
 
-        // Create a new schematic buffer.
+        // Create a new schematic buffer
         const Schematic = NBT.encode("Schematic", {
             PaletteMax: new Int(5),
             Palette: {
@@ -82,7 +83,7 @@ module.exports = (File, Input) => {
         console.log(Input);
         console.log(Schematic);
 
-        // Gzip the buffer and write!
+        // Gzip the buffer and write
         zlib.gzip(Schematic, (Err, GZippedSchem) => {
             if (Err) throw Err;
             FS.writeFileSync(`${FileName}.schem`, GZippedSchem);
