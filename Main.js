@@ -30,11 +30,11 @@ FS.readdirSync("./Program").forEach(File => {
         .filter(Line => Line.length);
 
     console.log(Program);
-    let Output = [];
+    const Output = [];
 
     // Iterate through the program
     Program.forEach(Line => {
-        let Opcode = Ops[Line[0]];
+        const Opcode = Ops[Line[0]];
         if (!Opcode) return Output.push(ToSignedBin(parseInt(Line[0]), 8));
         Output.push(Opcode + ToSignedBin(parseInt(Line[1] || 0), ["DIM", "JMP", "MST", "MLD"].includes(Line[0]) ? 5 : 3));
     });
