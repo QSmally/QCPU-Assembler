@@ -1,2 +1,10 @@
+
+# Dependencies
 node_modules
 package-lock.json
+
+# Internal files
+.DS_Store
+
+# Editor
+.vscode/
