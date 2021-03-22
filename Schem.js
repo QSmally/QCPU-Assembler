@@ -23,7 +23,7 @@ const Prepare = (File, Contents) => {
     return FileName;
 }
 
-const ConvertBool = Bin => Bin.split("").map(Bit => Bit == "1");
+const ConvertBool = Bin => Bin.split("").map(Bit => Bit === "1");
 
 
 module.exports = (File, Input) => {
